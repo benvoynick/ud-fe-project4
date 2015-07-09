@@ -1,0 +1,23 @@
+{
+  "name": "udacity-front-end-nd-project-4",
+  "version": "1.0.0",
+  "description": "Project 4 for Udacity's Front End Nanodegree",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benvoynick/ud-fe-project4.git"
+  },
+  "author": "Ben Voynick <ben.voynick@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benvoynick/ud-fe-project4/issues"
+  },
+  "homepage": "https://github.com/benvoynick/ud-fe-project4#readme"
+}
