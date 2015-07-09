@@ -6,8 +6,10 @@
   "dependencies": {},
   "devDependencies": {
     "gulp": "^3.9.0",
+    "gulp-inline-source": "^2.0.0",
     "gulp-minify-html": "^1.0.3",
     "gulp-minify-inline": "^0.1.0",
+    "gulp-rename": "^1.2.2",
     "imagemin-jpegtran": "^4.3.0"
   },
   "scripts": {
