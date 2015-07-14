@@ -502,9 +502,12 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  // all pizza elements in for loop below will use the same scroll position-based calculation, so do it now outside the for loop
+  // All pizza elements in for loop below will use the same scroll position-based calculation
+  // So, do just one calculation now outside the for loop to avoid layout thrashing
   var sin = Math.sin(document.body.scrollTop / 1250);
   
+  // Use getElementsByClassName to get all .mover elements
+  // getElementsByClassName returns a live list, and so is more performant than querySelectorAll's creation of a non-live list
   var items = document.getElementsByClassName('mover');
   for (var i = 0; i < items.length; i++) {
     var phase = sin + (i % 5);
@@ -528,7 +531,10 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var s = 256;   // base separation between pizzas in px
   var cols = 8;
+  // Calculate a number of rows based off browser height.
   var rows = Math.ceil(document.documentElement.clientHeight / s);
+  // Calculate pizzas based on how many the user's browser can actually display.
+  // Creating fewer pizzas will reduce performance impact of updatePositions()
   var num_pizzas = cols * rows;
   console.log('About to generate ' + num_pizzas + ' background pizzas');
   
