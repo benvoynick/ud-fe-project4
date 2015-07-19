@@ -543,8 +543,9 @@ document.addEventListener('DOMContentLoaded', function() {
   var num_pizzas = cols * rows;
   console.log('About to generate ' + num_pizzas + ' background pizzas');
   
+  var elem;
   for (var i = 0; i <= num_pizzas; i++) {
-    var elem = document.createElement('img');
+    elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
