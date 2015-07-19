@@ -504,13 +504,13 @@ function updatePositions() {
 
   // All pizza elements in for loop below will use the same scroll position-based calculation
   // So, do just one calculation now outside the for loop to avoid layout thrashing
-  var sin = Math.sin(document.body.scrollTop / 1250);
+  var scrollTop = document.body.scrollTop / 1250;
   
   // Use getElementsByClassName to get all .mover elements
   // getElementsByClassName returns a live list, and so is more performant than querySelectorAll's creation of a non-live list
   var items = document.getElementsByClassName('mover');
   for (var i = 0; i < items.length; i++) {
-    var phase = sin + (i % 5);
+    var phase = Math.sin(scrollTop + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
