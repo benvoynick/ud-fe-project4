@@ -453,9 +453,11 @@ var resizePizzas = function(size) {
     var randomPizzaContainers = document.getElementsByClassName("randomPizzaContainer");
     var randomPizzaContainersLength = randomPizzaContainers.length;
     
+    // Since all randomPizzas are the same size, calculate their size and new size just once
+    var dx = determineDx(randomPizzaContainers[0], size);
+    var newwidth = (randomPizzaContainers[0].offsetWidth + dx) + 'px';
+    
     for (var i = 0; i < randomPizzaContainersLength; i++) {
-      var dx = determineDx(randomPizzaContainers[i], size);
-      var newwidth = (randomPizzaContainers[i].offsetWidth + dx) + 'px';
       randomPizzaContainers[i].style.width = newwidth;
     }
   }
