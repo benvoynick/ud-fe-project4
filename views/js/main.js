@@ -493,7 +493,8 @@ var frame = 0;
 function logAverageFrame(times) {   // times is the array of User Timing measurements from updatePositions()
   var numberOfEntries = times.length;
   var sum = 0;
-  for (var i = numberOfEntries - 1; i > numberOfEntries - 11; i--) {
+  var ignoredEntries = numberOfEntries - 11;
+  for (var i = numberOfEntries - 1; i > ignoredEntries; i--) {
     sum = sum + times[i].duration;
   }
   console.log("Average time to generate last 10 frames: " + sum / 10 + "ms");
@@ -514,8 +515,9 @@ function updatePositions() {
   // Use getElementsByClassName to get all .mover elements
   // getElementsByClassName returns a live list, and so is more performant than querySelectorAll's creation of a non-live list
   var items = document.getElementsByClassName('mover');
+  var phase;
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin(scrollTop + (i % 5));
+    phase = Math.sin(scrollTop + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
